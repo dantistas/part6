@@ -9,6 +9,10 @@ const App = () => {
   const anecdotes = useSelector(state => state)
   const dispatch = useDispatch()
 
+  anecdotes.sort(function (a, b) {
+    return b.votes - a.votes
+  })
+
   const addNewAnecdote = (e) => {
     e.preventDefault()
     const content = e.target.anecdote.value

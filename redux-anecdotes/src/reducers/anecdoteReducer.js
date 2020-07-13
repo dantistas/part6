@@ -19,6 +19,8 @@ const asObject = (anecdote) => {
 
 const initialState = anecdotesAtStart.map(asObject)
 
+
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'VOTE':
@@ -39,12 +41,6 @@ const reducer = (state = initialState, action) => {
       return state
   }
 
-
-  //okey... suimplementinta vote sistema 6.3
-  console.log('state now: ', state)
-  console.log('action', action)
-
-  return state
 }
 
 export default reducer
