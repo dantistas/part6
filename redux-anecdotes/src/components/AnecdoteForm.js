@@ -1,11 +1,13 @@
 import React from 'react'
 
-const anecdoteForm = ({dispatch, createAnecdote}) => {
+const anecdoteForm = ({dispatch, createAnecdote,notificationCreate }) => {
     const addNewAnecdote = (e) => {
         e.preventDefault()
         const content = e.target.anecdote.value
         e.target.anecdote.value = ''
         dispatch(createAnecdote(content))
+        dispatch(notificationCreate(content))
+        
     
       }
   return (

@@ -1,12 +1,13 @@
 import React from 'react'
 
-const ancdoteList = ({dispatch, voteAnecdote, anecdotes}) => {
+const ancdoteList = ({dispatch, voteAnecdote, anecdotes , notificationVote}) => {
     
-    const vote = (id) => {
-        console.log('vote', id)
-        dispatch(voteAnecdote(id))
+    const vote = (anecdote) => {
+        console.log('vote', anecdote.id)
+        dispatch(voteAnecdote(anecdote.id))
+        dispatch(notificationVote(anecdote.content))
       }
-
+    
   return (
     <div>
     <h2>Anecdotes</h2>
@@ -17,7 +18,7 @@ const ancdoteList = ({dispatch, voteAnecdote, anecdotes}) => {
           </div>
           <div>
             has {anecdote.votes}
-            <button onClick={() => vote(anecdote.id)}>vote</button>
+            <button onClick={() => vote(anecdote)}>vote</button>
           </div>
         </div>
       )}
