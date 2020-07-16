@@ -1,5 +1,4 @@
 import React from 'react'
-import { notificationNull } from '../reducers/notificationReducer'
 
 const anecdoteForm = ({dispatch, createAnecdote,notificationCreate, notificationNull }) => {
     const addNewAnecdote = (e) => {
