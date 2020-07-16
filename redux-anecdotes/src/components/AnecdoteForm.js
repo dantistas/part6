@@ -1,14 +1,16 @@
 import React from 'react'
+import { notificationNull } from '../reducers/notificationReducer'
 
-const anecdoteForm = ({dispatch, createAnecdote,notificationCreate }) => {
+const anecdoteForm = ({dispatch, createAnecdote,notificationCreate, notificationNull }) => {
     const addNewAnecdote = (e) => {
         e.preventDefault()
         const content = e.target.anecdote.value
         e.target.anecdote.value = ''
         dispatch(createAnecdote(content))
         dispatch(notificationCreate(content))
-        
-    
+        setTimeout( ()=> {
+            dispatch(notificationNull())
+        }, 5000)
       }
   return (
     <div>

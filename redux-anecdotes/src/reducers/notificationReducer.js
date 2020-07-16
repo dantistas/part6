@@ -1,14 +1,17 @@
-const notificationReducer = (state = '', action) => {
+const notificationReducer = (state = null, action) => {
     switch (action.type) {
         case 'NOTIFICATION_CREATE':
           return state = `You have created ( ${action.data.content} ) anecdote!`
         case 'NOTIFICATION_VOTE':
             return state = `you  vote for ( ${action.data.content} )`
+        case 'NOTIFICATION_NULL':
+            return state = null
             
          
         default:
           return state
       }
+      
 }
 
 export const notificationCreate = (content) => {
@@ -26,6 +29,13 @@ export const notificationCreate = (content) => {
       data: {
         content
       }
+    }
+  }
+
+  export const notificationNull = () => {
+    return {
+      type: 'NOTIFICATION_NULL'
+      
     }
   }
 

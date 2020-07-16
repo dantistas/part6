@@ -1,11 +1,14 @@
 import React from 'react'
 
-const ancdoteList = ({dispatch, voteAnecdote, anecdotes , notificationVote}) => {
+const ancdoteList = ({dispatch, voteAnecdote, anecdotes , notificationVote, notificationNull}) => {
     
     const vote = (anecdote) => {
         console.log('vote', anecdote.id)
         dispatch(voteAnecdote(anecdote.id))
         dispatch(notificationVote(anecdote.content))
+        setTimeout( ()=> {
+            dispatch(notificationNull())
+        }, 5000)
       }
     
   return (

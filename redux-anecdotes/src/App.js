@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { createAnecdote, voteAnecdote } from './reducers/anecdoteReducer'
-import { notificationCreate, notificationVote } from './reducers/notificationReducer'
+import { notificationCreate, notificationVote, notificationNull } from './reducers/notificationReducer'
 import AnecdoteForm from "./components/AnecdoteForm"
 import AnecdoteList from "./components/AnecdoteList"
 import Notification from "./components/Notification"
@@ -21,8 +21,8 @@ const App = () => {
   return (
     <div>
       <Notification/>
-      <AnecdoteList dispatch={dispatch} voteAnecdote={voteAnecdote} anecdotes={anecdotes} notificationVote={notificationVote}/>
-      <AnecdoteForm dispatch={dispatch} createAnecdote={createAnecdote} notificationCreate={notificationCreate} />
+      <AnecdoteList dispatch={dispatch} voteAnecdote={voteAnecdote} anecdotes={anecdotes} notificationVote={notificationVote} notificationNull={notificationNull}/>
+      <AnecdoteForm dispatch={dispatch} createAnecdote={createAnecdote} notificationCreate={notificationCreate}  notificationNull={notificationNull}/>
     </div>
   )
 }
