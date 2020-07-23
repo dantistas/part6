@@ -1,11 +1,13 @@
 import React from 'react'
+import anecdoteService from '../services/anecdotes'
 
 const anecdoteForm = ({dispatch, createAnecdote,notificationCreate, notificationNull }) => {
-    const addNewAnecdote = (e) => {
+    const addNewAnecdote = async (e) => {
         e.preventDefault()
         const content = e.target.anecdote.value
         e.target.anecdote.value = ''
-        dispatch(createAnecdote(content))
+        const newAnecdote = await anecdoteService.createNew(content)
+        dispatch(createAnecdote(newAnecdote))
         dispatch(notificationCreate(content))
         setTimeout( ()=> {
             dispatch(notificationNull())
