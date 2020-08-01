@@ -5,7 +5,7 @@ const ancdoteList = ({dispatch, voteAnecdote, anecdotes , notificationVote, noti
     
     const vote = (anecdote) => {
         console.log('vote', anecdote.id)
-        dispatch(voteAnecdote(anecdote.id))
+        dispatch(voteAnecdote(anecdote))
         dispatch(notificationVote(anecdote.content))
         setTimeout( ()=> {
             dispatch(notificationNull())

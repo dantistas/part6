@@ -1,5 +1,4 @@
 import React from 'react'
-import anecdoteService from '../services/anecdotes'
 
 const anecdoteForm = ({dispatch, createAnecdote,notificationCreate, notificationNull }) => {
     const addNewAnecdote = async (e) => {
