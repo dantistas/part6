@@ -6,8 +6,7 @@ const anecdoteForm = ({dispatch, createAnecdote,notificationCreate, notification
         e.preventDefault()
         const content = e.target.anecdote.value
         e.target.anecdote.value = ''
-        const newAnecdote = await anecdoteService.createNew(content)
-        dispatch(createAnecdote(newAnecdote))
+        dispatch(createAnecdote(content))
         dispatch(notificationCreate(content))
         setTimeout( ()=> {
             dispatch(notificationNull())
