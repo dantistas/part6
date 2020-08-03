@@ -14,29 +14,50 @@ const notificationReducer = (state = null, action) => {
       
 }
 
-export const notificationCreate = (content) => {
-    return {
-      type: 'NOTIFICATION_CREATE',
-      data: {
-        content
-      }
+
+
+export const notificationCreate = (content, timeOut) => {
+    return async dispatch => {
+      await dispatch(
+        {
+          type: 'NOTIFICATION_CREATE',
+          data: {
+            content
+          }
+        }
+      )
+      setTimeout(() => {
+        dispatch(
+          {
+            type: 'NOTIFICATION_NULL'
+            
+          }
+        )
+      }, timeOut)
+    } 
+  }
+ 
+  export const notificationVote = (content, timeOut) => {
+    return async dispatch => {
+      await dispatch(
+        {
+          type: 'NOTIFICATION_VOTE',
+          data: {
+            content
+          }
+        }
+      )
+      setTimeout(() => {
+        dispatch(
+          {
+            type: 'NOTIFICATION_NULL'
+            
+          }
+        )
+      }, timeOut)
     }
+    
   }
 
-  export const notificationVote = (content) => {
-    return {
-      type: 'NOTIFICATION_VOTE',
-      data: {
-        content
-      }
-    }
-  }
-
-  export const notificationNull = () => {
-    return {
-      type: 'NOTIFICATION_NULL'
-      
-    }
-  }
 
 export default notificationReducer

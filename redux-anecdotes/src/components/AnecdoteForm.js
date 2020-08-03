@@ -1,15 +1,13 @@
 import React from 'react'
 
-const anecdoteForm = ({dispatch, createAnecdote,notificationCreate, notificationNull }) => {
+const anecdoteForm = ({dispatch, createAnecdote,notificationCreate }) => {
     const addNewAnecdote = async (e) => {
         e.preventDefault()
         const content = e.target.anecdote.value
         e.target.anecdote.value = ''
         dispatch(createAnecdote(content))
-        dispatch(notificationCreate(content))
-        setTimeout( ()=> {
-            dispatch(notificationNull())
-        }, 5000)
+        dispatch(notificationCreate(content, 2000))
+        
       }
   return (
     <div>
