@@ -6,7 +6,7 @@ const ancdoteList = ({dispatch, voteAnecdote, anecdotes , notificationVote, sear
     const vote = (anecdote) => {
         console.log('vote', anecdote.id)
         dispatch(voteAnecdote(anecdote))
-        dispatch(notificationVote(anecdote.content, 2000))
+        dispatch(notificationVote(anecdote.content, 2))
       }
 
       

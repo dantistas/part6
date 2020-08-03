@@ -6,7 +6,7 @@ const anecdoteForm = ({dispatch, createAnecdote,notificationCreate }) => {
         const content = e.target.anecdote.value
         e.target.anecdote.value = ''
         dispatch(createAnecdote(content))
-        dispatch(notificationCreate(content, 2000))
+        dispatch(notificationCreate(content, 2))
         
       }
   return (

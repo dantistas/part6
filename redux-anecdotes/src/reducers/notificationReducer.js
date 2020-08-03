@@ -17,6 +17,7 @@ const notificationReducer = (state = null, action) => {
 
 
 export const notificationCreate = (content, timeOut) => {
+  const miliseconds = timeOut * 1000
     return async dispatch => {
       await dispatch(
         {
@@ -33,11 +34,12 @@ export const notificationCreate = (content, timeOut) => {
             
           }
         )
-      }, timeOut)
+      }, miliseconds)
     } 
   }
  
   export const notificationVote = (content, timeOut) => {
+    const miliseconds = timeOut * 1000
     return async dispatch => {
       await dispatch(
         {
@@ -54,7 +56,7 @@ export const notificationCreate = (content, timeOut) => {
             
           }
         )
-      }, timeOut)
+      }, miliseconds)
     }
     
   }
