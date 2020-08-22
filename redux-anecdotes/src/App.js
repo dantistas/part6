@@ -23,6 +23,7 @@ const App = () => {
   }, [dispatch])
 
 
+
   anecdotes.sort(function (a, b) {
     return b.votes - a.votes
   })
