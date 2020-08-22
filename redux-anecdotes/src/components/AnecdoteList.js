@@ -1,14 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {voteAnecdote} from '../reducers/anecdoteReducer'
+import {notificationVote} from '../reducers/notificationReducer'
 
 
 const anecdoteList = (props) => {
     
-    // const vote = (anecdote) => {
-    //     console.log('vote', anecdote.id)
-    //     dispatch(voteAnecdote(anecdote))
-    //     dispatch(notificationVote(anecdote.content, 2))
-    //   }
+    const vote = (anecdote) => {
+        console.log('vote', anecdote.id)
+        props.voteAnecdote(anecdote)
+        props.notificationVote(anecdote.content, 2)
+      }
 
       
     console.log('props: ', props.anecdotes) 
@@ -27,7 +29,7 @@ if(props.anecdotes === null ){
           <div
             key={anecdote.id}
             >
-            <div>{anecdote.content} has {anecdote.votes} <button>vote</button></div>
+            <div>{anecdote.content} has {anecdote.votes} <button onClick={ () => vote(anecdote)}>vote</button></div>
         
   
             </div>
@@ -58,9 +60,15 @@ const mapStateToProps = (state) => {
           anecdotes: filteredAnecdotes
         }
       }
-}
+  }
 }
 
-const connectedAnecdotes = connect(mapStateToProps)(anecdoteList)
+
+const mmapDispatchToProps = {
+  voteAnecdote,
+  notificationVote
+}
+
+const connectedAnecdotes = connect(mapStateToProps, mmapDispatchToProps)(anecdoteList)
 
 export default connectedAnecdotes
