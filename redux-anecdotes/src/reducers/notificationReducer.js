@@ -38,8 +38,7 @@ export const notificationCreate = (content, timeOut) => {
     } 
   }
  
-  export const notificationVote = (content, timeOut) => {
-    const miliseconds = timeOut * 1000
+  export const notificationVote = (content) => {
     return async dispatch => {
       await dispatch(
         {
@@ -49,16 +48,21 @@ export const notificationCreate = (content, timeOut) => {
           }
         }
       )
-      setTimeout(() => {
-        dispatch(
-          {
-            type: 'NOTIFICATION_NULL'
-            
-          }
-        )
-      }, miliseconds)
     }
     
+  }
+
+  export const notificationNull = () => {
+
+    return async dispatch => {
+      await dispatch(
+        {
+          type: 'NOTIFICATION_NULL'
+          
+        }
+      )
+    }
+
   }
 
 

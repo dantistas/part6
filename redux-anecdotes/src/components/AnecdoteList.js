@@ -1,15 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {voteAnecdote} from '../reducers/anecdoteReducer'
-import {notificationVote} from '../reducers/notificationReducer'
+import {notificationVote, notificationNull} from '../reducers/notificationReducer'
+
+let timeOutId
 
 
 const anecdoteList = (props) => {
-    
+  
     const vote = (anecdote) => {
-        console.log('vote', anecdote.id)
+        clearTimeout(timeOutId)
         props.voteAnecdote(anecdote)
-        props.notificationVote(anecdote.content, 2)
+        props.notificationVote(anecdote.content)
+        timeOutId = setTimeout(props.notificationNull, 2000)       
       }
 
 if(props.anecdotes === null ){
@@ -60,7 +63,8 @@ const mapStateToProps = (state) => {
 
 const mmapDispatchToProps = {
   voteAnecdote,
-  notificationVote
+  notificationVote,
+  notificationNull
 }
 
 const connectedAnecdotes = connect(mapStateToProps, mmapDispatchToProps)(anecdoteList)
