@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { createAnecdote, initializeAnecdotes } from './reducers/anecdoteReducer'
-import { notificationCreate } from './reducers/notificationReducer'
-import {filter} from './reducers/filterReducer'
+import { initializeAnecdotes } from './reducers/anecdoteReducer'
 import AnecdoteForm from "./components/AnecdoteForm"
 import AnecdoteList from "./components/AnecdoteList"
 import Notification from "./components/Notification"
@@ -31,10 +29,10 @@ const App = () => {
 
   return (
     <div>
-      <Filter filter={filter} dispatch={dispatch}/>
+      <Filter/>
       <Notification notification={notification}/>
       <AnecdoteList/>
-      <AnecdoteForm dispatch={dispatch} createAnecdote={createAnecdote} notificationCreate={notificationCreate}  />
+      <AnecdoteForm/>
     </div>
   )
 }

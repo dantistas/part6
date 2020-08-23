@@ -12,8 +12,6 @@ const anecdoteList = (props) => {
         props.notificationVote(anecdote.content, 2)
       }
 
-      
-    console.log('props: ', props.anecdotes) 
 if(props.anecdotes === null ){
   return (
     <div>
@@ -26,13 +24,9 @@ if(props.anecdotes === null ){
       <ul>
       <h2>Anecdotes</h2>
         {props.anecdotes.map(anecdote=>
-          <div
-            key={anecdote.id}
-            >
-            <div>{anecdote.content} has {anecdote.votes} <button onClick={ () => vote(anecdote)}>vote</button></div>
-        
-  
-            </div>
+            <li key={anecdote.id}>
+              <div>{anecdote.content} <strong> has {anecdote.votes} </strong> <button onClick={ () => vote(anecdote)}>vote</button></div>
+            </li>
           )}
       </ul>
   )
