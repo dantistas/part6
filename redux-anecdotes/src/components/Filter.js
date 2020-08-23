@@ -18,16 +18,6 @@ const Filter = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    state: state
-  }
-}
 
-const mapDispatchToProps = {
-  filter
-}
 
-const connectedFilters = connect(mapStateToProps, mapDispatchToProps)(Filter)
-
-export default connectedFilters
+export default connect(null, {filter})(Filter)
